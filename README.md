@@ -3,10 +3,9 @@
 Quick and easy Markdown documentation for projects.
 
 This is most easily hosted via **[GitHub Pages](https://pages.github.com/)**,
-and you can follow the [directions below](#user-content-how-to-deploy)
-However, or all
-other use cases, you can really do whatever you’d like with the documentation
-since it will just spit out static HTML documentation.
+and you can follow the [directions below](#user-content-how-to-deploy).
+However, for all other use cases, you can really do whatever you’d like with
+the documentation since it will just spit out static HTML documentation.
 
 **Contents**
 
@@ -81,15 +80,14 @@ customization.
 ### GitHub Pages
 Deployment is easy! But just make sure you’ve **committed** your latest
 version of your code—you’re going to be temporarily wiping out your code
-directory to publish this to a new branch.
+directory to publish this to a new branch. *(you can avoid doing this if you
+want to commit every file manually instead).*
 
 1.  Navigate to your local copy of the repo you’ll be hosting this from.
 2.  Make a new branch named **gh-pages** with `git checkout --orphan gh-pages`
     *(this branch can’t be named anything else)*
 3.  Within this folder, commit your code, and then **delete** everything in
     this repo except for the `.git` repo itself.
-    *(you can avoid doing this, but it will be more hassle—you’ll have to
-    commit every file manually in the next step.)*
 4.  Navigate back to your **documentation** directory and run
     `middleman build`.
 5.  Take everything generated to the `/build` directory and copy into the root
@@ -98,9 +96,9 @@ directory to publish this to a new branch.
 7.  **Publish** to GitHub and you’re done! (pushing for the first time may
     take up to 10 minutes to view live)
 
-View your public docs at: http://[github-handle].github.io/[repo-name]
+View your public docs at: `http://[github-handle].github.io/[repo-name]`.
 
-*Note: this method has some annoyment of having to manually copy over build
+This method has some annoyment of having to manually copy over build
 files into another repo for pushing.
 
 *Will this work for private repos?*
