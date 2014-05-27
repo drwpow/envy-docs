@@ -94,28 +94,21 @@ customization.
 
 ### GitHub Pages
 We’re assuming that this is documentation for another repo, so you’re going
-to be pushing your build files to an empty branch named **gh-pages** in
-your repo.
+to be pushing your build files to an empty orphan branch named **gh-pages**
+in your repo.
 
-1.  Navigate to `/my-app` (the repo to which you wish to publish these docs)
-2.  run `git checkout --orphan gh-pages` *(this branch can’t be named
-    anything else)*
-3.  After all changes have been stashed/committed, delete everything in
-    `/my-app`.
-4.  Navigate to `/docs` (your documentation directory) and run
-    `middleman build`.
-5.  Take everything generated to the `build` directory and copy into the
-    now-empty `/my-app` directory
-6.  Commit everything to your newly-created **gh-pages** branch (`git
-    add .`, `git commit -m 'Add docs'`)
-7.  **Publish** to GitHub (`git push --set-upstream origin gh-pages`) and
-    you’re done! (pushing for the first time may take up to 10 minutes to
-    view live)
+Navigate to your documentation directory, and run
+
+```
+middleman build
+```
+
+to generate static HTML. Then simply copy everything in this directory to an
+empty orphan branch named **gh-pages** in your app (`git checkout --orphan
+gh-pages`), and push to GitHub (`git push --set-upstream origin gh-pages`).
+The rest is magic!
 
 View your public docs at: `http://[github-handle].github.io/[repo-name]`.
-
-This method has some annoyment of having to manually copy over build
-files into another repo for pushing.
 
 *Will this work for private repos?*
 
