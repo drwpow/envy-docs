@@ -106,13 +106,14 @@ new, empty branch named *gh-pages*.
 1.  Navigate to `/my-app` (the repo to which you wish to publish these docs)
 2.  run `git checkout --orphan gh-pages` *(this branch can’t be named
     anything else)*
-3.  After all changes have been committed (`git commit -am 'Commit before
-    adding docs'`), delete everything (`git rm -rf .`).
+3.  After all changes have been stashed/committed (`git commit -am 'Commit
+    before adding docs'`), delete everything in `/my-app` (`git rm -rf .`).
 4.  Navigate to `/docs` (your documentation directory) and run
     `middleman build`.
-5.  Take everything generated to the `build` directory and copy into `/my-app`
+5.  Take everything generated to the `build` directory and copy into the
+    now-empty `/my-app` directory
 6.  Commit everything to your newly-created **gh-pages** branch (`git
-    commit -am 'Add docs'`)
+    add .`, `git commit -m 'Add docs'`)
 7.  **Publish** to GitHub (`git push --set-upstream origin gh-pages`) and
     you’re done! (pushing for the first time may take up to 10 minutes to
     view live)
