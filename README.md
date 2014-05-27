@@ -1,4 +1,4 @@
-# Envy Docs
+# Envy Docs v1.0
 
 Quick and easy Markdown documentation for projects.
 
@@ -7,7 +7,15 @@ and you can follow the [directions below](#user-content-how-to-deploy).
 However, for all other use cases, you can really do whatever you’d like with
 the documentation since it will just spit out static HTML documentation.
 
-**Contents**
+**Demo: [dangodev.github.io/envy-docs](http://dangodev.github.io/envy-docs/)**
+
+### Version History
+
+**1.0** *(25 May 2014)*
+*   Initial styling
+*   TODO: responsive styles
+
+### Contents
 
 1.  Set Up
 2.  How to Write
@@ -18,22 +26,26 @@ the documentation since it will just spit out static HTML documentation.
 ## Set Up
 
 1. `gem install middleman`
-2. `bundle` 
-3. `middleman s`
-4. `open http://localhost:4567`
+2. `git clone git@github.com:dangodev/envy-docs.git`
+3. `bundle`
+4. `middleman s`
+5. `open http://localhost:4567`
 
 You’ll be working with the files in `/source/` only.
 
-*Note: if this documentation is for a repo and you plan on publishing to
-GitHub pages, then I recommend keeping these files in another place
-**outside** of that directory. You’ll understand why when you go to deploy
-this.*
+If you don’t know where to keep the docs in relation to your codebase, I
+recommend keping them **separate from the codebase you plan on documenting**
+(ie, having `/my-app` and  `/my-app-docs` side-by-side). In most cases it’s
+easier to treat this documentation as a separate app with its own revisions
+and history, and you’ll only be copying build files over when you’re ready to
+publish.
 
 ## How to Write
 
-Save any `.md` file in this document and it will automatically be added to the
-left navigation. Just be sure to include the following header for each page,
-making changes where necessary:
+Make a new file, and save it as an `.md` file.
+
+To add your new markdown file to the navigation, include the following header
+(with dashes):
 
 ```
 ---
@@ -45,7 +57,8 @@ priority: 3
 
 *  `title`: Declares the page title in the navigation and browser title
 *  `type`: This must be set to *page* in order to be added to the menu.
-*  `priority`: This sets the order in the left navigation (if it conflicts with another item, they are sorted alphabetically)
+*  `priority`: This sets the order in the left navigation (if it conflicts
+    with another item, they are sorted alphabetically)
 
 *Can I put files in sub-folders?*
 
@@ -54,6 +67,10 @@ sub-children in the left navigation; regardless of their path they will all
 appear as individual navigation items.
 
 *Does it matter what I name the .md files?*
+
+Nope.
+
+*Isn’t there more setup than that?*
 
 Nope.
 
@@ -78,23 +95,27 @@ customization.
 ## How to Deploy
 
 ### GitHub Pages
-Deployment is easy! But just make sure you’ve **committed** your latest
-version of your code—you’re going to be temporarily wiping out your code
-directory to publish this to a new branch. *(you can avoid doing this if you
-want to commit every file manually instead).*
+Deployment is easy! Remember that we’re assuming that this is documentation
+for another repo, so these instructions are for piggybacking these docs onto an
+**already-existing repo.**
 
-1.  Navigate to your local copy of the repo you’ll be hosting this from.
-2.  Make a new branch named **gh-pages** with `git checkout --orphan gh-pages`
-    *(this branch can’t be named anything else)*
-3.  Within this folder, commit your code, and then **delete** everything in
-    this repo except for the `.git` repo itself.
-4.  Navigate back to your **documentation** directory and run
+Just make sure you’ve committed your latest version of your code—you’re
+going to be temporarily wiping out your code directory to publish this to a
+new, empty branch named *gh-pages*.
+
+1.  Navigate to `/my-app` (the repo to which you wish to publish these docs)
+2.  run `git checkout --orphan gh-pages` *(this branch can’t be named
+    anything else)*
+3.  After all changes have been committed (`git commit -am 'Commit before
+    adding docs'`), delete everything (`git rm -rf .`).
+4.  Navigate to `/docs` (your documentation directory) and run
     `middleman build`.
-5.  Take everything generated to the `/build` directory and copy into the root
-    directory of the repo this will be hosted from.
-6.  Commit everything to your newly-created **gh-pages** branch.
-7.  **Publish** to GitHub and you’re done! (pushing for the first time may
-    take up to 10 minutes to view live)
+5.  Take everything generated to the `build` directory and copy into `/my-app`
+6.  Commit everything to your newly-created **gh-pages** branch (`git
+    commit -am 'Add docs'`)
+7.  **Publish** to GitHub (`git push --set-upstream origin gh-pages`) and
+    you’re done! (pushing for the first time may take up to 10 minutes to
+    view live)
 
 View your public docs at: `http://[github-handle].github.io/[repo-name]`.
 
