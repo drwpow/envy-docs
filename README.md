@@ -1,13 +1,11 @@
 # Envy Docs v1.0
 
-Quick and easy Markdown documentation for projects.
+Quick and easy Markdown documentation, hosted via
+**[GitHub Pages](https://pages.github.com/)** ([directions below](#user-content-how-to-deploy)). 
 
-This is most easily hosted via **[GitHub Pages](https://pages.github.com/)**,
-and you can follow the [directions below](#user-content-how-to-deploy).
-However, for all other use cases, you can really do whatever you’d like with
-the documentation since it will just spit out static HTML documentation.
+## Demo
 
-**Demo: [dangodev.github.io/envy-docs](http://dangodev.github.io/envy-docs/)**
+**[dangodev.github.io/envy-docs](http://dangodev.github.io/envy-docs/)**
 
 ### Version History
 
@@ -95,19 +93,15 @@ customization.
 ## How to Deploy
 
 ### GitHub Pages
-Deployment is easy! Remember that we’re assuming that this is documentation
-for another repo, so these instructions are for piggybacking these docs onto an
-**already-existing repo.**
-
-Just make sure you’ve committed your latest version of your code—you’re
-going to be temporarily wiping out your code directory to publish this to a
-new, empty branch named *gh-pages*.
+We’re assuming that this is documentation for another repo, so you’re going
+to be pushing your build files to an empty branch named **gh-pages** in
+your repo.
 
 1.  Navigate to `/my-app` (the repo to which you wish to publish these docs)
 2.  run `git checkout --orphan gh-pages` *(this branch can’t be named
     anything else)*
-3.  After all changes have been stashed/committed (`git commit -am 'Commit
-    before adding docs'`), delete everything in `/my-app` (`git rm -rf .`).
+3.  After all changes have been stashed/committed, delete everything in
+    `/my-app`.
 4.  Navigate to `/docs` (your documentation directory) and run
     `middleman build`.
 5.  Take everything generated to the `build` directory and copy into the
