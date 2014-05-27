@@ -76,17 +76,14 @@ Nope.
 
 ### Colors
 There are a few color options readily available in
-`assets/stylesheets/application.sass`.
-
-Beyond that, hack it up! All the styles are in `application.sass`, and you’ll
-find the layout file itself in `layouts/layout.haml`.
+`assets/stylesheets/application.sass`. Beyond that, hack it up! All the
+styles are in `application.sass`, and you’ll find the layout file itself in
+`layouts/layout.haml`.
 
 ### Syntax Highlighting
 You can change `Github` to any of the other available
 [themes](https://github.com/middleman/middleman-syntax#css) in
-`assets/stylesheets/code.html.erb`.
-
-You’re also free to contribute any
+`assets/stylesheets/code.html.erb`. You’re also free to contribute any
 [Rouge](https://github.com/jneen/rouge)-style syntax file if you need more
 customization.
 
@@ -116,6 +113,12 @@ Yes, this will work for private repos. The repo will still be entirely
 private, but the docs will be accessible to anyone (including the associated
 GitHub handle and repo name, unless you’ve configured a
 [domain](https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages)).
+
+*What if my repo currently isn’t on GitHub?*
+
+Then make a free public repo on GitHub! Doesn’t matter if you have any
+code within *master*, so long as the build files can be found within the
+**gh-pages** branch.
 
 ### Other Hosting
 
